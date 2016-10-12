@@ -31,13 +31,13 @@ class BaseWebTest(unittest.TestCase):
         pass
 
     def test_test1(self):
-        response = self.app.post_json('/test1', {})
+        response = self.app.get('/test1', {})
         self.assertEqual(response.status, "200 OK")
 
     def test_test2(self):
-        response = self.app.post_json('/test2', {})
+        response = self.app.get('/test2', {})
         self.assertEqual(response.status, "200 OK")
 
-    def test_test2(self):
-        response = self.app.post_json('/test3', {})
+    def test_test3(self):
+        response = self.app.get('/test3', {}, status = "409 Conflict")
         self.assertEqual(response.status, "409 Conflict")
